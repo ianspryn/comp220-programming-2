@@ -1,11 +1,15 @@
+import java.util.Scanner;
 
 public class DUMBEST {
 
 	public static void main(String args[]) {
-		String ian = "l'Il have a pie.";
-		String bobby = "I'll have a pie";
+		Scanner scnr = new Scanner(System.in);
+		System.out.println("Hey there! Would you OH SO KINDLY tell me the raw score?");
+		Double score = scnr.nextDouble();
 		
-		System.out.println(ian == bobby);
+		Double studentScore = score * 100;
+		
+		System.out.println("The score is " + studentScore + "%!!!!!!!!!!!!!");
 	}
 
 }
