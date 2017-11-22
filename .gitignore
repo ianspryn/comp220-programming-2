@@ -1,3 +1,11 @@
+# Custom
+.recommenders
+.metadata
+.settings
+.classpath
+.project
+bin
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

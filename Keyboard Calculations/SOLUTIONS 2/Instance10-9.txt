@@ -1,0 +1,15 @@
+h t n r s e i a o p u l c y b g k w f j x m v q d 
+Score: 1.4967886361023905 Conflicts: 679
+15.454 17.081001 16.532 17.56 16.567999 14.924 10.582 11.827 9.767 
+h t n r s e i a o p u l c y b g k w f q x m v j d 
+Score: 1.4946186382222437 Conflicts: 680
+15.454 17.081001 16.532 17.56 16.567999 14.924 10.582 11.769 9.825 
+h t n r s e i a o p u l c y b x k w f j q m v g d 
+Score: 1.4944363040717898 Conflicts: 680
+15.454 17.081001 16.532 17.56 16.567999 16.844 10.527 9.961999 9.767 
+null null null null null null null null null null null null null null null null null null null null null null null null null 
+Score: 0.0 Conflicts: 680
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+null null null null null null null null null null null null null null null null null null null null null null null null null 
+Score: 0.0 Conflicts: 680
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 

@@ -1,0 +1,15 @@
+h t n r s e i a o g q w c y f k b l x u p m v j d 
+Score: 2.321664199860937 Conflicts: 678
+16.26 16.169 10.845999 17.56 14.49 17.587 13.097 13.924999 10.361 
+h t n r s e i a o g q w c y f k b l j u p m v x d 
+Score: 2.318559997391912 Conflicts: 679
+16.26 16.169 10.848999 17.56 14.493 17.584 13.097 13.924999 10.358 
+h t n r s e i a o g q w c y f k x l b u p m v j d 
+Score: 2.2888687499325333 Conflicts: 677
+14.917999 16.169 10.845999 17.56 15.831999 17.587 13.097 13.924999 10.361 
+h t n r s e i a o g q w c y f k j l b u p m v x d 
+Score: 2.283608518066352 Conflicts: 679
+14.921 16.169 10.848999 17.56 15.831999 17.584 13.097 13.924999 10.358 
+h t n r s e i a o g q v w u y x p l b j d m c k f 
+Score: 2.2726896354298805 Conflicts: 680
+14.672 17.973 11.243 15.7560005 15.189 16.384998 15.951 10.443999 12.682 

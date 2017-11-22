@@ -1,0 +1,10 @@
+87178291200
+h t n r s e i a o m b y x w v u q p l k j g f d c 
+Score: 4.611028418373708 Conflicts: 723
+13.240999 18.994 15.18 16.132 11.402 16.327 11.464 13.049 14.506 
+h t n r s e i a o m b y x w v u q p l k j g f d c 
+Score: 4.428071157191586 Conflicts: 721
+15.439 18.994 11.301 16.132 13.083 16.327 11.464 13.049 14.506 
+h t n r s e i a o m b y x w v u q p l k j g f d c 
+Score: 4.185684759895516 Conflicts: 721
+15.016999 18.994 11.301 16.132 13.505 16.327 11.464 13.049 14.506 

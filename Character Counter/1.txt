@@ -1,0 +1,4 @@
+letters: 9
+digits: 3
+whitespace: 2
+others: 1
