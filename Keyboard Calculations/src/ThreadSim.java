@@ -15,9 +15,9 @@ public class ThreadSim implements Runnable{
 	
     public static void main(String[] args) throws IOException{
     	
-    	l = 0;
-    	k = 6;
-    	threads = 13; //MAX: 14
+    	l = 12;
+    	k = 12;
+    	threads = 3; //MAX: 14
     	
     	
     	// Don't worry about anything else beyond here.
