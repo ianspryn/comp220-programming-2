@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class ThreadSim implements Runnable{
+public class ThreadSim_680E implements Runnable{
    
 	/**
      * Setup here.
@@ -15,14 +15,14 @@ public class ThreadSim implements Runnable{
 	
     public static void main(String[] args) throws IOException{
     	
-    	l = 9;
+    	l = 12;
     	k = 12;
-    	threads = 2; //MAX: 14
+    	threads = 3; //MAX: 14
     	
     	
     	// Don't worry about anything else beyond here.
-    	// Version: 740 G
-    	maxConflicts = 740;
+    	// Version: 680 E
+    	maxConflicts = 680;
     	System.out.println("Instance " + k + " " + l);
     	
     	File file = new File("matrix");
@@ -48,7 +48,7 @@ public class ThreadSim implements Runnable{
         scnr.close();
     	
     	for(int num = 0; num < threads; num++){
-    	Thread thread = new Thread(new ThreadSim(l, k, num));
+    	Thread thread = new Thread(new ThreadSim_680E(l, k, num));
     	thread.start();
     	}
 	}
@@ -69,7 +69,7 @@ public class ThreadSim implements Runnable{
     static Long count = new Long(0);
     static int threads, threadsDone = 0, l, k;
     
-    public ThreadSim(int l, int k, int thread){
+    public ThreadSim_680E(int l, int k, int thread){
     	if(bestSets == null){
     		bestSets = new ArrayList<letterSet>();
     		for(int i = 0; i < 5; i++){
@@ -191,14 +191,14 @@ public class ThreadSim implements Runnable{
                                                                          break;
                                                                  case 9: conflicts += numbers[place][getPlace(newletters[16])] + numbers[place][getPlace(newletters[17])] +
                                                                          numbers[place][getPlace(newletters[21])] + numbers[place][getPlace(newletters[22])]
-                                                                         + numbers[place][getPlace(newletters[24])] + numbers[place][getPlace(newletters[10])]; weight[0] += getWeight(current); weight[1] += getWeight(current);
+                                                                         + numbers[place][getPlace(newletters[24])]; weight[0] += getWeight(current); weight[1] += getWeight(current);
                                                                          break;
                                                                  case 10: conflicts += numbers[place][getPlace(newletters[16])] + numbers[place][getPlace(newletters[17])] +
                                                                          numbers[place][getPlace(newletters[18])] + numbers[place][getPlace(newletters[22])]
-                                                                        		 + numbers[place][getPlace(newletters[11])]; weight[2] += getWeight(current); weight[1] += getWeight(current);
+                                                                         ; weight[2] += getWeight(current); weight[1] += getWeight(current);
                                                                          break;
                                                                  case 11: conflicts += numbers[place][getPlace(newletters[16])] + numbers[place][getPlace(newletters[17])] +
-                                                                         numbers[place][getPlace(newletters[18])] + numbers[place][getPlace(newletters[21])]+ numbers[place][getPlace(newletters[12])];
+                                                                         numbers[place][getPlace(newletters[18])] + numbers[place][getPlace(newletters[21])];
                                                                          weight[2] += getWeight(current); weight[3] += getWeight(current);
                                                                          break;
                                                                  case 12: conflicts += numbers[place][getPlace(newletters[18])] + numbers[place][getPlace(newletters[17])] +
@@ -206,12 +206,12 @@ public class ThreadSim implements Runnable{
                                                                          + numbers[place][getPlace(newletters[24])]; weight[4] += getWeight(current); weight[3] += getWeight(current);
                                                                          break;
                                                                  case 13: conflicts += numbers[place][getPlace(newletters[19])] + numbers[place][getPlace(newletters[20])] +
-                                                                         numbers[place][getPlace(newletters[23])]+ numbers[place][getPlace(newletters[14])];
+                                                                         numbers[place][getPlace(newletters[23])];
                                                                          weight[5] += getWeight(current); weight[6] += getWeight(current);
                                                                          break;
                                                                  case 14: conflicts += numbers[place][getPlace(newletters[19])] + numbers[place][getPlace(newletters[20])]
-                                                                		 + numbers[place][getPlace(newletters[15])]; weight[7] += getWeight(current); weight[6] += getWeight(current);
-                                                                		 break;
+                                                                         ; weight[7] += getWeight(current); weight[6] += getWeight(current);
+                                                                         break;
                                                                  case 15: conflicts += numbers[place][getPlace(newletters[19])] + numbers[place][getPlace(newletters[20])] +
                                                                          numbers[place][getPlace(newletters[23])]; weight[7] += getWeight(current); weight[8] += getWeight(current);
                                                                          break;
@@ -283,7 +283,7 @@ public class ThreadSim implements Runnable{
                                                                  offtotal += (right[0] - targetWeightRight[0]) > 0 ? Math.pow(Math.abs(right[0] - targetWeightRight[0]) + 1, 4) : Math.pow(Math.abs(right[0] - targetWeightRight[0]) + 1, 2);
                                                                  offtotal += (right[1] - targetWeightRight[1]) > 0 ? Math.pow(Math.abs(right[1] - targetWeightRight[1]) + 1, 3) : Math.abs(right[1] - targetWeightRight[1]) + 1;
                                                                  
-                                                                 double score = (1250d/(double)conflicts) + (32d/offtotal);
+                                                                 double score = (1050d/(double)conflicts) + (32d/offtotal);
                                                                  if (score > bestSets.get(4).getScore()){
                                                                      bestQueue.add(new letterSet(newletters.clone(), conflicts, weight.clone(), score));
                                                                  }
