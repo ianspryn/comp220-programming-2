@@ -46,8 +46,7 @@ public class CallCenter {
 	 */
 	public void receive(Call c){
 		if (availableWorkers.size() > 0) {
-			Worker worker = availableWorkers.poll();
-			worker.handleCall(c);
+			availableWorkers.poll().handleCall(c);
 		} else {
 			pendingCalls.add(c);
 		}
