@@ -7,25 +7,29 @@ import java.util.Queue;
  * @author WOLFEBD
  *
  */
-public class CallCenter {
+public class CallCenterFAIL {
 	// TODO: Declare the member variables you need,
 	//       using collections that are well-suited to this application
-	private Queue<Call> pendingCalls;
-	private Queue<Worker> availableWorkers;
+	HashMap<Worker, Call> callCenter = new HashMap<>();
+	
+	Queue<Call> calls = new LinkedList<Call>();
+	int numAvailableWorkers;
+	int pendingCalls;
 	/**
 	 * Creates a call center with no available workers and no calls
 	 */
-	public CallCenter(){
+	public CallCenterFAIL(){
 		// TODO: initialize your member variables
-		pendingCalls = new LinkedList<Call>();
-		availableWorkers = new LinkedList<Worker>();
+		
+		this.numAvailableWorkers = 0;
+		this.pendingCalls = 0; 
 	}
 	
 	/**
 	 * @return The number of calls waiting in line
 	 */
 	public int pendingCalls(){
-		return pendingCalls.size();
+		return pendingCalls;
 	}
 	
 	/**
@@ -33,7 +37,7 @@ public class CallCenter {
 	 *   and available for taking a call.
 	 */
 	public int availableWorkers(){
-		return availableWorkers.size();
+		return numAvailableWorkers;
 	}
 	
 	/**
@@ -45,12 +49,13 @@ public class CallCenter {
 	 *   of a waiting list.
 	 */
 	public void receive(Call c){
-		if (availableWorkers.size() > 0) {
-			Worker worker = availableWorkers.poll();
-			worker.handleCall(c);
+		
+		if (numAvailableWorkers == 0) {
+			calls.add(c);
 		} else {
-			pendingCalls.add(c);
+			
 		}
+		
 	}
 	
 	/**
@@ -60,11 +65,10 @@ public class CallCenter {
 	 * Otherwise, add w to a group of available workers.
 	 */
 	public void available(Worker w){
-		if (pendingCalls.size() > 0) {
-			Call call = pendingCalls.poll();
-			w.handleCall(call);
-		} else {
-			availableWorkers.add(w);
+		if (calls.peek() != null) {
+			put (w, c);
 		}
+		
 	}
 }
+

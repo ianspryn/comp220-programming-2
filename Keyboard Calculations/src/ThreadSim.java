@@ -18,6 +18,7 @@ public class ThreadSim implements Runnable{
     	l = 9;
     	k = 12;
     	threads = 2; //MAX: 14
+    	Double.p
     	
     	
     	// Don't worry about anything else beyond here.
