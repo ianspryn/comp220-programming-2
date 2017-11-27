@@ -64,11 +64,11 @@ public class FacebookNetwork {
     		for (Integer friends : friends(startId)) {
         		FoF.addAll(friendsOfFriends(friends, numSteps - 1));
         	}
+    	}
     	
     	FoF.add(startId);
     	
     	return FoF;
     }
-    
 }
 
