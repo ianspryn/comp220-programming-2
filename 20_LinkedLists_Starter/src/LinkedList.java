@@ -1,7 +1,5 @@
 import java.util.NoSuchElementException;
 
-import javax.xml.soap.Node;
-
 public class LinkedList {
 
 	// NOTE: we use inner class with public
@@ -13,14 +11,15 @@ public class LinkedList {
 
 	// null if the list is empty
 	private Node first;
+	private int iterSize;
 
 	// Constructs an empty list
 	public LinkedList(){
 		first = null;
+		iterSize = 0;
 	}
 
 	// Gets the item at the front of the list
-	// TODO: Write the getFirst method with the instructor
 	Object getFirst() {
 		if (first == null) {
 			throw new NoSuchElementException();
@@ -29,7 +28,6 @@ public class LinkedList {
 		//will give a null pointer exception if the NOde is empty. So, WE CHECK ABOVE
 	}
 	// prepends element to the front of the list
-	// TODO: Write the addFirst method with the instructor
 	void addFirst(Object value) {
 		Node newNode = new Node();
 		newNode.data = value;
@@ -41,6 +39,7 @@ public class LinkedList {
 		first = newNode;
 		//the one you want to change is on the left of the equal sign and the new one is on the right
 		//seriously, don't do a LinkedList node without drawing a diagram
+		iterSize++;
 	}
 
 	// removes the first element in the list,
@@ -51,7 +50,7 @@ public class LinkedList {
 		//right hand side: where it shold point
 		//see 12-1-17 notes for the node graph list thingy at the very top
 		first = first.next;
-				
+		iterSize--;
 		return data;
 	}
 
@@ -162,6 +161,7 @@ public class LinkedList {
 			} else {
 				position = previous;
 				previous = null;
+				iterSize--;
 			}
 			isAfterNext = false;
 		}
@@ -203,26 +203,51 @@ public class LinkedList {
 				//aka, advance the iterator
 				position = newNode;
 				//or position = postition.next;
+				iterSize++;
 			}
 			
 			isAfterNext = false;
 		}
-
-
-
-
+	}
+	
+	
+	public boolean contains(Object obj) {
+		ListIterator other = iterator();
+		
+		while(other.hasNext()) {
+			if(other.next().equals(obj)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public LinkedList tail() {
+		if (this.size() < 1) {
+			throw new NoSuchElementException();			
+		}
+		LinkedList tail = new LinkedList();
+		tail.first = first.next;
+		tail.iterSize = iterSize - 1;
+		return tail;
+	}
+	
+	public void reverse() {
+		Node previous = null;
+		Node current = first;
+		Node next = null;
+		while(current != null)
+		{
+			next = current.next;
+			current.next = previous;
+			previous = current;
+			current = next;
+		}
+		first = previous;
 	}
 
 	public int size(){
-		// iterative version
-		int count = 0;
-		ListIterator iter = iterator();
-		
-		while(iter.hasNext()) {
-			count++;
-			iter.next();
-		}
-		return count;
+		return iterSize;
 	}
 	
 	public int size2(){
