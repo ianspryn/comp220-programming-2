@@ -266,4 +266,21 @@ public class LinkedList {
 			//how many nodes are there from n onward?
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return toStringRecurse(first);
+	}
+	
+	//Return a String for the list from n onward
+	//Let's say we have n -> |2| -> |3| -> |4| -> ||| (null)
+	private String toStringRecurse(Node n) {
+		if (n == null) {
+			return "";
+		} else {
+			//the first half is to return 2, and the rest is 3 and 4.`
+			return n.data.toString() + " " + toStringRecurse(n.next);
+			//99% of the time the next thing you want to recurse on is the next node
+		}
+	}
 }
