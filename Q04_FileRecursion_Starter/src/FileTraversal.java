@@ -44,6 +44,19 @@ public class FileTraversal {
     				allFiles.addAll(findAllFiles(file));
     	          }
         	}
+    		
+    		
+    		for (File f : filesAndSubdirs) {
+    			if (f.isFile()) {
+    				allFiles.add(f);
+    			} else if (f.isDirectory()) {
+    				findAllFiles(f);
+    				allFiles.add(f);
+//    				List<File> subdirFiles = findAllFiles(f);
+//    				allFiles.addAll(subdirFiles);
+    				//ALT METHOD
+    			}
+    		}
 		
 		
 		// Return the result
