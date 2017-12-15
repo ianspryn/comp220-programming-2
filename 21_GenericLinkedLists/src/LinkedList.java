@@ -1,5 +1,7 @@
-import java.util.NoSuchElementException;
+import java.util.*;
 
+import org.junit.Assert;
+import org.junit.Test;
 public class LinkedList<E> {
 	//you could use any other single capital letter instead of E
 
@@ -204,7 +206,141 @@ public class LinkedList<E> {
 		}
 	}
 	
+	//WOLFE WORK
+	static class LengthLexOrder implements Comparator<String> {
+
+		@Override
+		public int compare(String first, String second) {
+			if(first.length() < second.length()){
+				return -1;
+			}
+			else if(first.length() > second.length()){
+				return 1;
+			}
+			else{
+				// Strings are the same length
+				// Check the contents to see 
+				//   which is first in alphabetic order
+				return first.compareTo(second);
+			}
+		}
+		
+	}
+
+	//
+	public static void main(String[] args) {
+		LinkedList<String> lol = new LinkedList<String>();
+		ListIterator<String> iter = lol.iterator();
+		iter.add("123");
+		iter.add("321");
+		Comparator<String> comp = new LengthLexOrder();
+		System.out.println("MAX" + lol.max(comp));		
+		tryAndCatch();
+	}
 	
+	//friendly user input example
+	//4a
+	public static void tryAndCatch() throws IllegalArgumentException {
+		Scanner scnr = new Scanner(System.in);
+		boolean isGoodInput = false;
+		while (!isGoodInput) {
+			try {
+				System.out.println("YO ENTER SOME TEXT");
+				String blah = scnr.nextLine();
+				foo(blah);
+				isGoodInput = true;
+			} catch (IllegalArgumentException IAE) {
+				throw new IllegalArgumentException();
+			}
+		}
+	}
+	
+	//check string for blank or just spaces
+	//4
+	public static void foo (String s) throws IllegalArgumentException {
+		if (s == "") {
+			throw new IllegalArgumentException("OH NOEZ IT'S EMPTY");
+		}
+		String noSpace = s.replaceAll("\\s+","");
+		if (noSpace.equals("")) {
+			throw new IllegalArgumentException("THERE ARE ONLY SPACES");
+		} 
+		System.out.println("YAY it wasn't empty and it didn't contain just spaces");
+	}
+	
+	
+	
+	//part 1a
+	public E max(Comparator<E> comp) {
+			if (this.size() < 1) {
+				throw new NoSuchElementException();
+			}
+			ListIterator<E> iter = this.iterator();
+			E max = iter.next();
+			while (iter.hasNext()) {
+				E next = iter.next();
+				if (comp.compare(next, max) > 0) {
+					max = next;
+				}
+			}
+			return max;
+		}
+	
+	//part 1a
+	public E min(Comparator<E> comp) {
+		if (this.size() < 1) {
+			throw new NoSuchElementException();
+		}
+		ListIterator<E> iter = this.iterator();
+		E min = iter.next();
+		while (iter.hasNext()) {
+			E next = iter.next();
+			if (comp.compare(next, min) < 0) {
+				min = next;
+			}
+		}
+		return min;
+	}
+
+	//2 Copy cosntructor
+	public LinkedList(LinkedList<E> E) {
+		ListIterator<E> iter = E.iterator();
+		ListIterator<E> iterNew = this.iterator();
+		if (!iter.hasNext()) {
+			throw new NoSuchElementException();
+		}
+		while (iter.hasNext()) {
+			iterNew.add(iter.next());
+			iterNew.next();
+		}
+	}
+	
+	//check if a collection as duplicates
+	//3
+	public static <T> boolean hasDuplicates(Collection<T> items) {
+		Iterator<T> iter1 = items.iterator();
+		int pos = 0;
+		int pos2 = 0;
+		while (iter1.hasNext()) {
+			Iterator<T> iter2 = items.iterator();
+			T obj1 = iter1.next();
+			pos++;
+			while (iter2.hasNext()) {
+				pos++;
+				if (pos == pos2) {
+					if (iter2.hasNext()) {
+						iter2.next();
+					}
+				}
+				if (obj1.equals(iter2.next())) {
+					return true;
+				}
+			}
+			pos2 = 0;
+			iter1.next();
+		}
+		return false;
+	}
 
 	public int size() {
 		// iterative version
