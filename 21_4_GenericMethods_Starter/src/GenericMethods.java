@@ -32,19 +32,25 @@ public class GenericMethods {
 	//find max using recursive
 	//1.b
 	//broken
-	public static <T extends Comparable<T>> T maxRecursive(Iterator<T> iter) {
-		if (!iter.hasNext()) {
-			throw new NoSuchElementException("AHHH FAIL");
+	public static <T extends Comparable<T>> T maxRecursive(Iterator<T> xs){
+		
+		if(!xs.hasNext()){
+			throw new NoSuchElementException();
 		}
+		
+		
 		T bestSoFar = null;
 		
-		if (iter.hasNext()) {
-			bestSoFar = iter.next();
-			T currentPosition = maxRecursive(iter);
-			if (currentPosition.compareTo(bestSoFar) > 0) {
-				bestSoFar = currentPosition;
+		if(xs.hasNext()){
+			bestSoFar = xs.next();
+			T next = maxRecursive(xs);
+			if(bestSoFar.compareTo(next) > 0){
+				bestSoFar = next;
 			}
 		}
+		
+		
+		
 		return bestSoFar;
 	}
 	
@@ -57,7 +63,9 @@ public class GenericMethods {
 		Iterator<String> blah = strings.iterator();
 		
 		System.out.println(max(strings));
-		System.out.println(maxRecursive(blah));
+		
+		Iterator<String> iter = strings.iterator();
+		System.out.println(maxRecursive(iter));
 		
 		ArrayList< NoSuchElementException > wontWork = new ArrayList<>();
 		wontWork.add(new NoSuchElementException("x"));
