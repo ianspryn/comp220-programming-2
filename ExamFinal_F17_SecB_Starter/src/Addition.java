@@ -10,10 +10,10 @@ public class Addition extends Expression {
 	
 	@Override
 	public double getValue() {
-		return first.getValue()+second.getValue();
+		return first.getValue() + second.getValue();
 	}
 	@Override
 	public String toString() {
-		return first.toString() + "/" + second.toString();
+		return first.toString() + "+" + second.toString();
 	}
 }

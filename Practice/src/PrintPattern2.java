@@ -171,10 +171,10 @@ public class PrintPattern2 {
 			for (int j = 0; j < 2 * userDigit - 1; j++) {
 				if (j >= userDigit - 1 - i && j <= userDigit - 1 + i) {
 					if (j < userDigit) {
-						System.out.print((Math.abs((userDigit  + 2 * i) - j) - 2 * i) % 10 + " ");
+						System.out.print(Math.abs(userDigit - (j + 2 + 2 * i)) % 10 + " ");
 					}
 					else {
-						System.out.print((Math.abs((userDigit  + 2 * i) - j)) % 10 + " ");
+						System.out.print((Math.abs((userDigit + 2 * i) - j)) % 10 + " ");
 					}
 				} else {
 					System.out.print("  ");
